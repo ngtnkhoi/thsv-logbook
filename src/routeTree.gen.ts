@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TamGuongRouteImport } from './routes/tam-guong'
+import { Route as LangNgheRouteImport } from './routes/lang-nghe'
+import { Route as HoaLuaRouteImport } from './routes/hoa-lua'
+import { Route as BaoTangRouteImport } from './routes/bao-tang'
+import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TamGuongRoute = TamGuongRouteImport.update({
+  id: '/tam-guong',
+  path: '/tam-guong',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangNgheRoute = LangNgheRouteImport.update({
+  id: '/lang-nghe',
+  path: '/lang-nghe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HoaLuaRoute = HoaLuaRouteImport.update({
+  id: '/hoa-lua',
+  path: '/hoa-lua',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BaoTangRoute = BaoTangRouteImport.update({
+  id: '/bao-tang',
+  path: '/bao-tang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,96 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/bao-tang': typeof BaoTangRoute
+  '/hoa-lua': typeof HoaLuaRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/tam-guong': typeof TamGuongRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/bao-tang': typeof BaoTangRoute
+  '/hoa-lua': typeof HoaLuaRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/tam-guong': typeof TamGuongRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/bao-tang': typeof BaoTangRoute
+  '/hoa-lua': typeof HoaLuaRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/tam-guong': typeof TamGuongRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about-us'
+    | '/bao-tang'
+    | '/hoa-lua'
+    | '/lang-nghe'
+    | '/tam-guong'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about-us' | '/bao-tang' | '/hoa-lua' | '/lang-nghe' | '/tam-guong'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-us'
+    | '/bao-tang'
+    | '/hoa-lua'
+    | '/lang-nghe'
+    | '/tam-guong'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutUsRoute: typeof AboutUsRoute
+  BaoTangRoute: typeof BaoTangRoute
+  HoaLuaRoute: typeof HoaLuaRoute
+  LangNgheRoute: typeof LangNgheRoute
+  TamGuongRoute: typeof TamGuongRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tam-guong': {
+      id: '/tam-guong'
+      path: '/tam-guong'
+      fullPath: '/tam-guong'
+      preLoaderRoute: typeof TamGuongRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lang-nghe': {
+      id: '/lang-nghe'
+      path: '/lang-nghe'
+      fullPath: '/lang-nghe'
+      preLoaderRoute: typeof LangNgheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hoa-lua': {
+      id: '/hoa-lua'
+      path: '/hoa-lua'
+      fullPath: '/hoa-lua'
+      preLoaderRoute: typeof HoaLuaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bao-tang': {
+      id: '/bao-tang'
+      path: '/bao-tang'
+      fullPath: '/bao-tang'
+      preLoaderRoute: typeof BaoTangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +151,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutUsRoute: AboutUsRoute,
+  BaoTangRoute: BaoTangRoute,
+  HoaLuaRoute: HoaLuaRoute,
+  LangNgheRoute: LangNgheRoute,
+  TamGuongRoute: TamGuongRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
