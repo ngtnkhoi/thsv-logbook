@@ -2,9 +2,9 @@ import { Text } from "@chakra-ui/react";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-	component: Home,
+	component: TrangChu,
 });
 
-function Home() {
-	return <Text> Hello World </Text>;
+function TrangChu() {
+	return <Text>hello world</Text>;
 }
