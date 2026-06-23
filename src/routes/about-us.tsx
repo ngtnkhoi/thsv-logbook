@@ -1,9 +1,129 @@
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/about-us')({
-  component: aboutUs,
-})
-
-function aboutUs() {
-  return <div>Hello "/about-us"!</div>
+import {Box,Flex,Heading,Image,Link,Text} from "@chakra-ui/react";
+import {createFileRoute,Link as HLink} from "@tanstack/react-router";
+import {text,contact} from "../constants/about";
+export const Route=createFileRoute("/about-us")({component:aboutus});
+function aboutus(){
+    return(
+        <Box
+            minH="100vh"
+            bgImage="linear-gradient(rgba(255,220,220,0.7), rgba(255,220,220,0.7)),url('/bg.png')"
+            bgSize="190px"
+            bgRepeat="repeat"
+            py={20}
+            px={4}
+        >
+            <Box
+                w={{
+                    base:"80%",
+                    md:"90%"
+                }}
+                mx="auto"
+                bg="#8A2626"
+                borderRadius="20px"
+                py={4}
+                mb={6}
+                position="relative"
+            >
+                <Box
+                    position="absolute"
+                    left={{
+                        base:"10px",
+                        sm:"15px",
+                        md:"20px"
+                    }}
+                    top="50%"
+                    transform="translateY(-50%)"
+                >
+                    <HLink 
+                        to="/"
+                    >
+                        <Image
+                            src="/home.png"
+                            alt="Home"
+                            boxSize={{
+                                base:"7",
+                                md:"10"
+                            }}
+                            filter="brightness(0) invert(1)"
+                        />
+                    </HLink>
+                </Box>
+                <Heading
+                    textAlign="center"
+                    color="white"
+                    fontSize={{
+                        base:"3xl",
+                        md:"4xl"
+                    }}
+                >
+                    XIN CHÀO
+                </Heading>
+            </Box>
+            <Box
+                w={{
+                    base:"80%",
+                    md:"90%"
+                }}
+                mx="auto"
+                bg="#F2EFD8"
+                p={8}
+            >
+                <Flex
+                    gap={8}
+                    direction={{
+                        base:"column",
+                        lg:"row"
+                    }}
+                >
+                    <Box flex="0 0 40%">
+                        <Image
+                            src="/motcaigido.png"
+                            alt="Đội hình Sài Gòn Unfolded"
+                            w="100%"
+                        />
+                    </Box>
+                    <Box flex="1">
+                        <Text
+                            fontSize="2xl"
+                            lineHeight="1.6"
+                            mb={8}
+                        >
+                            <Text
+                                as="span"
+                                fontWeight="700"
+                            >
+                                {text[0].bold}
+                            </Text>
+                            {text[0].content}
+                        </Text>
+                        <Text
+                            fontSize="2xl"
+                            lineHeight="1.6"
+                            mb={8}
+                        >
+                            {text[1].content}
+                        </Text>
+                        <Text
+                            fontSize="2xl"
+                            lineHeight="1.6"
+                        >
+                            <Text
+                                fontWeight="700"
+                            >
+                                {contact.bold}
+                            </Text>
+                            <Link
+                                href={contact.href}
+                                color="blue.600"
+                                textDecoration="underline"
+                                target="_blank"
+                            >
+                                {contact.label}
+                            </Link>
+                        </Text>
+                    </Box>
+                </Flex>
+            </Box>
+        </Box>
+    );
 }
