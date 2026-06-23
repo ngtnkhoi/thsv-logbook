@@ -9,7 +9,7 @@ function aboutus(){
             bgImage="linear-gradient(rgba(255,220,220,0.7), rgba(255,220,220,0.7)),url('/bg.png')"
             bgSize="190px"
             bgRepeat="repeat"
-            py={8}
+            py={20}
             px={4}
         >
             <Box
