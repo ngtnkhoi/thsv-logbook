@@ -13,3 +13,12 @@ __unconfig*
 todos.json
 .idea
 .vscode
+/.sanity
+/logs
+*.log
+/dist
+/.pnp
+.pnp.js
+/coverage
+*.pem
+*.tsbuildinfo

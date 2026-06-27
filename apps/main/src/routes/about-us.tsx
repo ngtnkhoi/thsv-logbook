@@ -1,6 +1,6 @@
 import {Box,Flex,Heading,Image,Link} from "@chakra-ui/react";
 import {createFileRoute,Link as HLink} from "@tanstack/react-router";
-import {text,contact} from "../constants/about";
+import {text,contact} from "../constants/about.ts";
 export const Route=createFileRoute("/about-us")({component:aboutus});
 function aboutus(){
     return(

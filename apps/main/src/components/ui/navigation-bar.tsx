@@ -1,6 +1,6 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
 import { Link } from "@tanstack/react-router";
-import { navigationItems } from "@/constants/app";
+import { navigationItems } from "../../constants/app.ts";
 
 const navLinks = [
 	{ label: navigationItems[0], path: "/" },
