@@ -8,13 +8,14 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root.tsx'
-import { Route as TamGuongRouteImport } from './routes/tam-guong.tsx'
-import { Route as LangNgheRouteImport } from './routes/lang-nghe.tsx'
-import { Route as HoaLuaRouteImport } from './routes/hoa-lua.tsx'
-import { Route as BaoTangRouteImport } from './routes/bao-tang.tsx'
-import { Route as AboutUsRouteImport } from './routes/about-us.tsx'
-import { Route as IndexRouteImport } from './routes'
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as TamGuongRouteImport } from './routes/tam-guong'
+import { Route as LangNgheRouteImport } from './routes/lang-nghe'
+import { Route as HoaLuaRouteImport } from './routes/hoa-lua'
+import { Route as BaoTangRouteImport } from './routes/bao-tang'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as SlugRouteImport } from './routes/$slug'
+import { Route as IndexRouteImport } from './routes/index'
 
 const TamGuongRoute = TamGuongRouteImport.update({
   id: '/tam-guong',
@@ -41,6 +42,11 @@ const AboutUsRoute = AboutUsRouteImport.update({
   path: '/about-us',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlugRoute = SlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +55,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/about-us': typeof AboutUsRoute
   '/bao-tang': typeof BaoTangRoute
   '/hoa-lua': typeof HoaLuaRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/about-us': typeof AboutUsRoute
   '/bao-tang': typeof BaoTangRoute
   '/hoa-lua': typeof HoaLuaRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/about-us': typeof AboutUsRoute
   '/bao-tang': typeof BaoTangRoute
   '/hoa-lua': typeof HoaLuaRoute
@@ -76,16 +85,25 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$slug'
     | '/about-us'
     | '/bao-tang'
     | '/hoa-lua'
     | '/lang-nghe'
     | '/tam-guong'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about-us' | '/bao-tang' | '/hoa-lua' | '/lang-nghe' | '/tam-guong'
+  to:
+    | '/'
+    | '/$slug'
+    | '/about-us'
+    | '/bao-tang'
+    | '/hoa-lua'
+    | '/lang-nghe'
+    | '/tam-guong'
   id:
     | '__root__'
     | '/'
+    | '/$slug'
     | '/about-us'
     | '/bao-tang'
     | '/hoa-lua'
@@ -95,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SlugRoute: typeof SlugRoute
   AboutUsRoute: typeof AboutUsRoute
   BaoTangRoute: typeof BaoTangRoute
   HoaLuaRoute: typeof HoaLuaRoute
@@ -139,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutUsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$slug': {
+      id: '/$slug'
+      path: '/$slug'
+      fullPath: '/$slug'
+      preLoaderRoute: typeof SlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -151,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SlugRoute: SlugRoute,
   AboutUsRoute: AboutUsRoute,
   BaoTangRoute: BaoTangRoute,
   HoaLuaRoute: HoaLuaRoute,
