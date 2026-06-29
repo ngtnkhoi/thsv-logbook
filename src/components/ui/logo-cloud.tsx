@@ -12,7 +12,7 @@ export default function logocloud(){
         alignItems="center"
     >
         <Image
-        src="/logo.png"
+        src="/logoo.png"
         alt="Logo Banner"
         w="90%"
         h="auto"
