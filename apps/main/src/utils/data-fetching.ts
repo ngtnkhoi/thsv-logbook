@@ -1,14 +1,16 @@
 import { client } from "@/sanity/client";
 
 export interface SanityImage {
-	_type: "image";
+	_type: "imavge";
 	asset: {
 		_ref: string;
 		_type: "reference";
 	};
+	blurDataURL?: string;
 }
 
 export interface ContentBlock {
+	_key: string;
 	mediaType: "image" | "video";
 	image?: SanityImage;
 	videoUrl?: string;
@@ -26,65 +28,49 @@ export interface Post {
 	contentBlocks?: ContentBlock[];
 }
 
-export async function getAllPosts(lang: "vi" | "en" = "vi"): Promise<Post[]> {
-	try {
-		const query = `*[_type == "post"] | order(publishedAt desc) {
-      _id,
-      "title": coalesce(title[$lang], title.vi),
-      "slug": slug.current,
-      category,
-      "excerpt": coalesce(excerpt[$lang], excerpt.vi),
-      coverImage,
-      publishedAt
-    }`;
+const POST_CORE_FIELDS = `
+  _id,
+  "title": coalesce(title[$lang], title.vi),
+  "slug": slug.current,
+  category,
+  "excerpt": coalesce(excerpt[$lang], excerpt.vi),
+  "coverImage": coverImage {
+    ...,
+    "blurDataURL": asset->metadata.lqip
+  },
+  publishedAt
+`;
 
-		return await client.fetch<Post[]>(query, { lang });
-	} catch (error) {
-		console.error("Lỗi khi fetch danh sách bài viết:", error);
-		return [];
-	}
+export async function getAllPosts(lang: "vi" | "en" = "vi"): Promise<Post[]> {
+	const query = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
+    ${POST_CORE_FIELDS}
+  }`;
+
+	return await client.fetch<Post[]>(query, { lang });
 }
 
 export async function getPostsByCategory(categorySlug: string, lang: "vi" | "en" = "vi"): Promise<Post[]> {
-	try {
-		const query = `*[_type == "post" && $categorySlug in category] | order(publishedAt desc) {
-      _id,
-      "title": coalesce(title[$lang], title.vi),
-      "slug": slug.current,
-      category,
-      "excerpt": coalesce(excerpt[$lang], excerpt.vi),
-      coverImage,
-      publishedAt
-    }`;
+	const query = `*[_type == "post" && defined(slug.current) && $categorySlug in category] | order(publishedAt desc) {
+    ${POST_CORE_FIELDS}
+  }`;
 
-		return await client.fetch<Post[]>(query, { categorySlug, lang });
-	} catch (error) {
-		console.error(`Lỗi khi fetch bài viết của chuyên mục ${categorySlug}:`, error);
-		return [];
-	}
+	return await client.fetch<Post[]>(query, { categorySlug, lang });
 }
 
 export async function getPostBySlug(slug: string, lang: "vi" | "en" = "vi"): Promise<Post | null> {
-	try {
-		const query = `*[_type == "post" && slug.current == $slug][0] {
-      _id,
-      "title": coalesce(title[$lang], title.vi),
-      "slug": slug.current,
-      category,
-      "excerpt": coalesce(excerpt[$lang], excerpt.vi),
-      coverImage,
-      publishedAt,
-      contentBlocks[] {
-        mediaType,
-        image,
-        "videoUrl": videoFile.asset->url, 
-        "text": coalesce(text[$lang], text.vi)
-      }
-    }`;
+	const query = `*[_type == "post" && slug.current == $slug][0] {
+    ${POST_CORE_FIELDS},
+    contentBlocks[] {
+      _key,
+      mediaType,
+      "image": image {
+        ...,
+        "blurDataURL": asset->metadata.lqip
+      },
+      "videoUrl": videoFile.asset->url, 
+      "text": coalesce(text[$lang], text.vi)
+    }
+  }`;
 
-		return await client.fetch<Post | null>(query, { slug, lang });
-	} catch (error) {
-		console.error(`Lỗi khi fetch chi tiết bài viết ${slug}:`, error);
-		return null;
-	}
+	return await client.fetch<Post | null>(query, { slug, lang });
 }
