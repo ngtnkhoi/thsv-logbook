@@ -2,6 +2,8 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { Provider } from "../components/ui/provider.tsx";
+import { NotFoundPage, ErrorPage } from "../components/errors/not-found.tsx";
+import { Toaster } from "../components/commons/toaster.tsx";
 
 import appCss from "../styles.css?url";
 
@@ -26,6 +28,8 @@ export const Route = createRootRoute({
 			},
 		],
 	}),
+	notFoundComponent: NotFoundPage,
+	errorComponent: ErrorPage,
 	shellComponent: RootDocument,
 });
 
@@ -36,7 +40,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<Provider>{children}</Provider>
+				<Provider>
+					{children}
+					<Toaster />
+				</Provider>
 				<TanStackDevtools
 					config={{
 						position: "bottom-right",
