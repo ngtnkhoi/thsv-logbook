@@ -7,6 +7,7 @@ export interface SanityImage {
 		_type: "reference";
 	};
 	blurDataURL?: string;
+	url?: string;
 }
 
 export interface ContentBlock {
@@ -36,7 +37,8 @@ const POST_CORE_FIELDS = `
   "excerpt": coalesce(excerpt[$lang], excerpt.vi),
   "coverImage": coverImage {
     ...,
-    "blurDataURL": asset->metadata.lqip
+    "blurDataURL": asset->metadata.lqip,
+    "url": asset->url
   },
   publishedAt
 `;
@@ -65,7 +67,8 @@ export async function getPostBySlug(slug: string, lang: "vi" | "en" = "vi"): Pro
       mediaType,
       "image": image {
         ...,
-        "blurDataURL": asset->metadata.lqip
+        "blurDataURL": asset->metadata.lqip,
+        "url": asset->url
       },
       "videoUrl": videoFile.asset->url, 
       "text": coalesce(text[$lang], text.vi)

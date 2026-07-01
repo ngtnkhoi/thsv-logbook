@@ -1,9 +1,24 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, notFound } from '@tanstack/react-router'
+import { getPostBySlug } from '@/utils/data-fetching'
+import { Text } from "@chakra-ui/react"
 
 export const Route = createFileRoute('/$slug')({
-  component: RouteComponent,
+	loader: async ({ params }) => {
+		const post = await getPostBySlug(params.slug, 'vi')
+
+		if (!post) {
+			throw notFound()
+		}
+
+		return post
+	},
+	component: PostDetailComponent,
 })
 
-function RouteComponent() {
-  return <div>Hello "/$slug"!</div>
+function PostDetailComponent() {
+	//receive data from loader: const post = Route.useLoaderData()
+
+	return (
+		<Text> Hello World </Text>
+	)
 }
