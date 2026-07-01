@@ -1,7 +1,7 @@
 import { client } from "@/sanity/client";
 
 export interface SanityImage {
-	_type: "imavge";
+	_type: "image";
 	asset: {
 		_ref: string;
 		_type: "reference";
