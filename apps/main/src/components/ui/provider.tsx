@@ -1,11 +1,22 @@
 "use client";
 
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
+import { ChakraProvider, createSystem, defaultConfig } from "@chakra-ui/react";
 import { ColorModeProvider, type ColorModeProviderProps } from "./color-mode.tsx";
+
+const customSystem = createSystem(defaultConfig, {
+	theme: {
+		tokens: {
+			fonts: {
+				heading: { value: "'Quicksand', sans-serif" },
+				body: { value: "'Montserrat', sans-serif" },
+			},
+		},
+	},
+});
 
 export function Provider(props: ColorModeProviderProps) {
 	return (
-		<ChakraProvider value={defaultSystem}>
+		<ChakraProvider value={customSystem}>
 			<ColorModeProvider {...props} />
 		</ChakraProvider>
 	);
