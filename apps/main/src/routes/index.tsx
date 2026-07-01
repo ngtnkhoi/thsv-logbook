@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Heading, VStack } from "@chakra-ui/react";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -6,5 +6,14 @@ export const Route = createFileRoute("/")({
 });
 
 function TrangChu() {
-	return <Text>hello world</Text>;
+	return (
+		<VStack>
+			<Heading>
+				hello world
+			</Heading>
+			<Text>
+				hello world
+			</Text>
+		</VStack>
+	)
 }

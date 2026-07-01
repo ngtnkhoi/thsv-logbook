@@ -8,13 +8,13 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root.tsx'
-import { Route as TamGuongRouteImport } from './routes/tam-guong.tsx'
-import { Route as LangNgheRouteImport } from './routes/lang-nghe.tsx'
-import { Route as HoaLuaRouteImport } from './routes/hoa-lua.tsx'
-import { Route as BaoTangRouteImport } from './routes/bao-tang.tsx'
-import { Route as AboutUsRouteImport } from './routes/about-us.tsx'
-import { Route as IndexRouteImport } from './routes'
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as TamGuongRouteImport } from './routes/tam-guong'
+import { Route as LangNgheRouteImport } from './routes/lang-nghe'
+import { Route as HoaLuaRouteImport } from './routes/hoa-lua'
+import { Route as BaoTangRouteImport } from './routes/bao-tang'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as IndexRouteImport } from './routes/index'
 
 const TamGuongRoute = TamGuongRouteImport.update({
   id: '/tam-guong',

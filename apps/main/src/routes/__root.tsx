@@ -4,8 +4,8 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { Provider } from "../components/ui/provider.tsx";
 import { NotFoundPage, ErrorPage } from "../components/errors/not-found.tsx";
 import { Toaster } from "#/components/ui/toaster.tsx";
-import '@fontsource/montserrat.css';
-import '@fontsource/quicksand.css';
+import '@fontsource-variable/montserrat/index.css';
+import '@fontsource-variable/quicksand/index.css';
 
 import appCss from "../styles.css?url";
 

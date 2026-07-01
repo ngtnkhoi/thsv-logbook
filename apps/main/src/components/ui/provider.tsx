@@ -7,8 +7,8 @@ const customSystem = createSystem(defaultConfig, {
 	theme: {
 		tokens: {
 			fonts: {
-				heading: { value: "'Quicksand', sans-serif" },
-				body: { value: "'Montserrat', sans-serif" },
+				heading: { value: "'Quicksand Variable', sans-serif" },
+				body: { value: "'Montserrat Variable', sans-serif" },
 			},
 		},
 	},
