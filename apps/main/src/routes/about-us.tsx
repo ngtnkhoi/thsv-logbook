@@ -1,6 +1,6 @@
-import {Box,Flex,Heading,Image,Link,Text} from "@chakra-ui/react";
+import {Box,Flex,Heading,Image,Link} from "@chakra-ui/react";
 import {createFileRoute,Link as HLink} from "@tanstack/react-router";
-import {text,contact} from "../constants/about";
+import {text,contact} from "../constants/about.ts";
 export const Route=createFileRoute("/about-us")({component:aboutus});
 function aboutus(){
     return(
@@ -13,10 +13,7 @@ function aboutus(){
             px={4}
         >
             <Box
-                w={{
-                    base:"80%",
-                    md:"90%"
-                }}
+                w="90%"
                 mx="auto"
                 bg="#8A2626"
                 borderRadius="20px"
@@ -52,7 +49,8 @@ function aboutus(){
                     textAlign="center"
                     color="white"
                     fontSize={{
-                        base:"3xl",
+                        base:"2xl",
+                        sm:"3xl",
                         md:"4xl"
                     }}
                 >
@@ -60,13 +58,15 @@ function aboutus(){
                 </Heading>
             </Box>
             <Box
-                w={{
-                    base:"80%",
-                    md:"90%"
+                w="90%"
+                minH={{
+                    base:"auto",
+                    lg:"70vh"
                 }}
                 mx="auto"
                 bg="#F2EFD8"
                 p={8}
+                color="black"
             >
                 <Flex
                     gap={8}
@@ -75,43 +75,59 @@ function aboutus(){
                         lg:"row"
                     }}
                 >
-                    <Box flex="0 0 40%">
+                    <Box 
+                        flex="0 0 40%"
+                    >
                         <Image
-                            src="/motcaigido.png"
+                            src="/doihinh.jpg"
                             alt="Đội hình Sài Gòn Unfolded"
                             w="100%"
                         />
                     </Box>
-                    <Box flex="1">
-                        <Text
-                            fontSize="2xl"
+                    <Box 
+                        flex="1"
+                    >
+                        <Box
+                            fontSize={{
+                                base:"lg",
+                                md:"xl",
+                                lg:"2xl",
+                            }}
                             lineHeight="1.6"
                             mb={8}
                         >
-                            <Text
+                            <Box
                                 as="span"
                                 fontWeight="700"
                             >
                                 {text[0].bold}
-                            </Text>
+                            </Box>
                             {text[0].content}
-                        </Text>
-                        <Text
-                            fontSize="2xl"
+                        </Box>
+                        <Box
+                            fontSize={{
+                                base:"lg",
+                                md:"xl",
+                                lg:"2xl",
+                            }}
                             lineHeight="1.6"
                             mb={8}
                         >
                             {text[1].content}
-                        </Text>
-                        <Text
-                            fontSize="2xl"
+                        </Box>
+                        <Box
+                            fontSize={{
+                                base:"lg",
+                                md:"xl",
+                                lg:"2xl",
+                            }}
                             lineHeight="1.6"
                         >
-                            <Text
+                            <Box
                                 fontWeight="700"
                             >
                                 {contact.bold}
-                            </Text>
+                            </Box>
                             <Link
                                 href={contact.href}
                                 color="blue.600"
@@ -120,7 +136,7 @@ function aboutus(){
                             >
                                 {contact.label}
                             </Link>
-                        </Text>
+                        </Box>
                     </Box>
                 </Flex>
             </Box>
