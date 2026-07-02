@@ -1,9 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {CATEGORIES} from './cagetory'
 
-// ==========================================
-// 1. TẠO KIỂU DỮ LIỆU ĐA NGÔN NGỮ (Tái sử dụng)
-// ==========================================
 export const localeString = defineType({
   name: 'localeString',
   title: 'Đa ngôn ngữ (Chuỗi ngắn)',
@@ -42,9 +39,6 @@ export const localeText = defineType({
   ],
 })
 
-// ==========================================
-// 2. KHỐI NỘI DUNG (Content Block)
-// ==========================================
 export const contentBlock = defineType({
   name: 'contentBlock',
   title: 'Khối Nội dung (Media & Text)',
@@ -89,7 +83,6 @@ export const contentBlock = defineType({
       options: {accept: 'video/*'},
       hidden: ({parent}) => parent?.mediaType !== 'video',
     }),
-    // 🛑 ĐÃ ĐỔI TỪ 'text' SANG 'localeText'
     defineField({
       name: 'text',
       title: 'Nội dung văn bản',
@@ -99,22 +92,17 @@ export const contentBlock = defineType({
   ],
 })
 
-// ==========================================
-// 3. BÀI VIẾT (Post Type)
-// ==========================================
 export const postType = defineType({
   name: 'post',
   title: 'Bài viết',
   type: 'document',
   fields: [
-    // 🛑 ĐÃ ĐỔI TỪ 'string' SANG 'localeString'
     defineField({
       name: 'title',
       title: 'Tiêu đề',
       type: 'localeString',
       validation: (rule) => rule.required(),
     }),
-    // 🛑 Chỉnh sửa source để sinh URL slug tự động từ Tiếng Việt
     defineField({
       name: 'slug',
       type: 'slug',
@@ -134,7 +122,6 @@ export const postType = defineType({
       },
       validation: (rule) => rule.required(),
     }),
-    // 🛑 ĐÃ ĐỔI TỪ 'text' SANG 'localeText'
     defineField({
       name: 'excerpt',
       type: 'localeText',
@@ -145,6 +132,7 @@ export const postType = defineType({
       name: 'coverImage',
       type: 'image',
       title: 'Ảnh nền bài viết',
+			validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'publishedAt',
