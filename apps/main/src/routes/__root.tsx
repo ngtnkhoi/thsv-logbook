@@ -1,3 +1,4 @@
+import React from "react";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
@@ -36,16 +37,18 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+	const ChakraProvider = Provider as React.ComponentType<{ children: React.ReactNode }>;
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>
+				<title>TanStack Start Starter</title>
 				<HeadContent />
 			</head>
 			<body>
-				<Provider>
+				<ChakraProvider>
 					{children}
 					<Toaster />
-				</Provider>
+				</ChakraProvider>
 				<TanStackDevtools
 					config={{
 						position: "bottom-right",
