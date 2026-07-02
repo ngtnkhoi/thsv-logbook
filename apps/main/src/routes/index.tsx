@@ -1,6 +1,6 @@
 import { Text, Heading, VStack } from "@chakra-ui/react";
 import { createFileRoute } from "@tanstack/react-router";
-import { LogoCloud } from "../components/ui/logo-cloud"
+import { SearchButton } from "#/components/ui/search-button";
 
 export const Route = createFileRoute("/")({
 	component: TrangChu,
@@ -15,7 +15,7 @@ function TrangChu() {
 			<Text>
 				hello world
 			</Text>
-			<LogoCloud />
+			<SearchButton />
 		</VStack>
 	)
 }
