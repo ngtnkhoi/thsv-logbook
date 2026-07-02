@@ -1,25 +1,25 @@
 import { Text } from "@chakra-ui/react";
 import { Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 
-export function LogoText({ isRolling = false }: { isRolling?: boolean }) {
+export function LogoText() {
+	const { t } = useTranslation();
+
 	return (
 		<Link
-			to="/"
+			to="/about-us"
 			style={{ textDecoration: "none" }}
 		>
 			<Text
 				as="h1"
-				color="#8A2626"
+				color="#ffffff"
 				fontWeight="bold"
+				fontFamily="quicksand"
 				whiteSpace="nowrap"
-				fontSize={
-					isRolling
-						? { base: "xl", md: "2xl" }
-						: { base: "4xl", md: "5xl", lg: "6xl" }
-				}
+				fontSize={{ base: "4xl", sm: "5xl", md: "8xl", lg: "10xl" }}
 				transition="all 0.5s ease-in-out"
 			>
-				SÀI GÒN UNFOLDED
+				{t("app.title")}
 			</Text>
 		</Link>
 	);

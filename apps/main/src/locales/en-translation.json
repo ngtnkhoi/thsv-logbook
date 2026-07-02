@@ -9,7 +9,12 @@
 			"Làng nghề truyền thống",
 			"Tấm gương trẻ",
 			"Thời hoa lửa"
-		]
+		],
+		"timKiemBaiViet": "Search articles",
+		"placeHolder": "Type to search",
+		"noResults": "No result for",
+		"resultsCount": "Result",
+		"untitledPost": "Untitled post"
 	},
 	"about": {
 		"text": [

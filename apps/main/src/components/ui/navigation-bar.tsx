@@ -1,16 +1,24 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
 import { Link } from "@tanstack/react-router";
-import { navigationItems } from "#/constants/app.ts";
+import { useTranslation } from "react-i18next";
 
-const navLinks = [
-	{ label: navigationItems[0], path: "/" },
-	{ label: navigationItems[1], path: "/bao-tang" },
-	{ label: navigationItems[2], path: "/lang-nghe" },
-	{ label: navigationItems[3], path: "/tam-guong" },
-	{ label: navigationItems[4], path: "/hoa-lua" },
+const NAV_PATHS = [
+	"/",
+	"/bao-tang",
+	"/lang-nghe",
+	"/tam-guong",
+	"/hoa-lua",
 ];
 
 export function NavigationBar() {
+	const { t } = useTranslation();
+	const navLabels = t("app.navigationItems", { returnObjects: true }) as string[];
+
+	const navLinks = NAV_PATHS.map((path, index) => ({
+		label: navLabels[index],
+		path: path,
+	}));
+
 	return (
 		<Box
 			w="full"
@@ -21,9 +29,13 @@ export function NavigationBar() {
 			<HStack
 				maxW="6xl"
 				mx="auto"
-				justify="space-between"
+				justify={{ base: "center", md: "space-between" }}
 				px={{ base: 4, md: 8 }}
-				py="4px"
+				py={{ base: "10px", md: "4px" }}
+
+				wrap={{ base: "wrap", md: "nowrap" }}
+				gap={{ base: "16px", md: 0 }}
+				rowGap={{ base: "8px", md: 0 }}
 			>
 				{navLinks.map((item) => (
 					<Link
@@ -39,11 +51,13 @@ export function NavigationBar() {
 					>
 						<Text
 							color="#80292A"
-							fontSize={{ base: "sm", md: "md", lg: "lg" }}
-							fontWeight="semibold"
-							pb="0px"
+							fontSize={{ base: "sm", sm: "md", md: "lg", lg: "xl" }}
+							fontWeight="bold"
+							fontFamily="quicksand"
+							pb="2px"
 							_hover={{ color: "red.800" }}
 							transition="all 0.15s ease"
+							whiteSpace="nowrap"
 						>
 							{item.label}
 						</Text>

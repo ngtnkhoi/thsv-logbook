@@ -9,7 +9,12 @@
 			"Làng nghề truyền thống",
 			"Tấm gương trẻ",
 			"Thời hoa lửa"
-		]
+		],
+		"timKiemBaiViet": "Tìm kiếm bài viết",
+		"placeHolder": "Nhập từ khóa tìm kiếm",
+		"noResults": "Không tìm thấy kết quả cho",
+		"resultsCount": "Kết quả",
+		"untitledPost": "Bài viết không tên"
 	},
 	"about": {
 		"text": [

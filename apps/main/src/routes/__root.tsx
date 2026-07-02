@@ -60,7 +60,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang={i18n.language} suppressHydrationWarning>
 			<head>
-				<title>TanStack Start Starter</title>
+				<title>Sài Gòn UNFOLDED</title>
 				<HeadContent />
 			</head>
 			<body>

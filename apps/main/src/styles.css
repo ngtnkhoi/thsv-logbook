@@ -12,3 +12,14 @@ body {
   margin: 0;
 }
 
+:root, [data-theme], html[class*="dark"] {
+	--chakra-colors-bg: #4A0F0E !important;
+	--chakra-colors-background: #4A0F0E !important;
+}
+
+html,
+body,
+#app,
+main {
+	background: #4A0F0E !important;
+}
