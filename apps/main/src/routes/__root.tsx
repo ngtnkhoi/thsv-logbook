@@ -3,7 +3,9 @@ import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { Provider } from "../components/ui/provider.tsx";
 import { NotFoundPage, ErrorPage } from "../components/errors/not-found.tsx";
-import { Toaster } from "../components/commons/toaster.tsx";
+import { Toaster } from "#/components/ui/toaster.tsx";
+import '@fontsource-variable/montserrat/index.css';
+import '@fontsource-variable/quicksand/index.css';
 
 import appCss from "../styles.css?url";
 
