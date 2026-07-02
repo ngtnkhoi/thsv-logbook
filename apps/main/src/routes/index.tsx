@@ -1,6 +1,6 @@
 import { Text, Heading, VStack } from "@chakra-ui/react";
 import { createFileRoute } from "@tanstack/react-router";
-import { SearchButton } from "#/components/ui/search-button";
+import { SwitchLanguageButton } from "#/components/ui/switch-language-button.tsx";
 
 export const Route = createFileRoute("/")({
 	component: TrangChu,
@@ -15,7 +15,7 @@ function TrangChu() {
 			<Text>
 				hello world
 			</Text>
-			<SearchButton />
+			<SwitchLanguageButton />
 		</VStack>
 	)
 }

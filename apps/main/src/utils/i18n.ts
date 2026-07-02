@@ -1,18 +1,14 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import translationEN from '#/locales/en-translation.json';
+import translationVI from '@/locales/vi-translation.json';
 
 const resources = {
 	en: {
-		translation: {
-			"greeting": "Hello",
-			"search": "Search"
-		}
+		translation: translationEN,
 	},
 	vi: {
-		translation: {
-			"greeting": "Xin chào",
-			"search": "Tìm kiếm"
-		}
+		translation: translationVI,
 	}
 };
 
