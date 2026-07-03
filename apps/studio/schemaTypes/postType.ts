@@ -122,6 +122,13 @@ export const postType = defineType({
       },
       validation: (rule) => rule.required(),
     }),
+		defineField({
+			name: 'coverPhoto',
+			type: 'image',
+			title: 'Ảnh bìa tóm tắt',
+			options: { hotspot: true },
+			validation: (rule) => rule.required(),
+		}),
     defineField({
       name: 'excerpt',
       type: 'localeText',

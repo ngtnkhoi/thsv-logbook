@@ -14,7 +14,9 @@
 		"placeHolder": "Nhập từ khóa tìm kiếm",
 		"noResults": "Không tìm thấy kết quả cho",
 		"resultsCount": "Kết quả",
-		"untitledPost": "Bài viết không tên"
+		"untitledPost": "Bài viết không tên",
+		"summarize": "Tóm tắt",
+		"searchErr": "Lỗi khi tìm kiếm"
 	},
 	"about": {
 		"text": [

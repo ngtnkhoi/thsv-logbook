@@ -14,7 +14,9 @@
 		"placeHolder": "Type to search",
 		"noResults": "No result for",
 		"resultsCount": "Result",
-		"untitledPost": "Untitled post"
+		"untitledPost": "Untitled post",
+		"summarize": "Summarize",
+		"searchErr": "Fail to find"
 	},
 	"about": {
 		"text": [
