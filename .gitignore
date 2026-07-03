@@ -13,7 +13,6 @@ __unconfig*
 todos.json
 .idea
 .vscode
-.sanity/
 /logs
 *.log
 /dist
