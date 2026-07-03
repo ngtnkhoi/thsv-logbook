@@ -17,7 +17,7 @@ interface PostResult {
 	slug?: { current?: string };
 }
 
-export function SearchButton() {
+export function SearchButton({ color } : { color: string }) {
 	const { t, i18n } = useTranslation();
 	const currentLang = i18n.language as "vi" | "en";
 
@@ -51,7 +51,7 @@ export function SearchButton() {
 
 	return (
 		<Box>
-			<HStack as="button" onClick={onOpen} gap={2} color="white" _hover={{ opacity: 0.8 }} transition="all 0.2s" whiteSpace="nowrap">
+			<HStack as="button" onClick={onOpen} gap={2} color="white" _hover={{ opacity: 0.8 }} transition="color 0.4s ease" whiteSpace="nowrap">
 				<chakra.svg
 					xmlns="http://www.w3.org/2000/svg"
 					boxSize={{ base: "20px", md: "26px", lg: "28px" }}
@@ -62,10 +62,10 @@ export function SearchButton() {
 					strokeLinecap="round"
 					strokeLinejoin="round"
 				>
-					<circle cx="14" cy="10" r="6" />
-					<line x1="3" y1="21" x2="9.7" y2="14.3" />
+					<circle cx="14" cy="10" r="6" stroke={color}/>
+					<line x1="3" y1="21" x2="9.7" y2="14.3" stroke={color}/>
 				</chakra.svg>
-				<Text fontSize={{ base: "md", md: "xl", lg: "3xl" }} fontFamily="quicksand" fontWeight="500">
+				<Text fontSize={{ base: "md", md: "xl", lg: "3xl" }} color={color} fontFamily="quicksand" fontWeight="500">
 					{t("app.searchButton")}
 				</Text>
 			</HStack>

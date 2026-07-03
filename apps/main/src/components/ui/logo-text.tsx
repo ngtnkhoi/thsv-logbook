@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 
-export function LogoText() {
+export function LogoText({ color } : { color: string }) {
 	const { t } = useTranslation();
 
 	return (
@@ -12,7 +12,7 @@ export function LogoText() {
 		>
 			<Text
 				as="h1"
-				color="#ffffff"
+				color={color}
 				fontWeight="bold"
 				fontFamily="quicksand"
 				whiteSpace="nowrap"

@@ -32,11 +32,11 @@ export function Header({ isRolling = false }: HeaderProps) {
 				zIndex={10}
 			>
 				<HStack gap={3} alignItems="center">
-					<SwitchLanguageButton />
+					<SwitchLanguageButton color="#ffffff"/>
 					<Text fontSize="3xl" fontWeight="200" color="whiteAlpha.600" mt="-2px">
 						|
 					</Text>
-					<SearchButton />
+					<SearchButton color="#ffffff"/>
 				</HStack>
 			</Box>
 
@@ -54,7 +54,7 @@ export function Header({ isRolling = false }: HeaderProps) {
 
 				transition="opacity 0.25s ease-in-out"
 			>
-				<LogoText />
+				<LogoText color="#ffffff"/>
 			</Box>
 
 			<VStack
@@ -72,7 +72,7 @@ export function Header({ isRolling = false }: HeaderProps) {
 					overflow="hidden"
 					transition="opacity 0.2s ease-in-out, max-height 0.35s ease-in-out"
 				>
-					<LogoText />
+					<LogoText color="#ffffff"/>
 				</Box>
 			</VStack>
 
