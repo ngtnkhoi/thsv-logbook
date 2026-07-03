@@ -2,7 +2,8 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Link as ChakraLink } from "@chakra-ui/react"; // Đổi tên Link thành ChakraLink
+import { Link as RouterLink } from "@tanstack/react-router"; // Thêm RouterLink của TanStack
 import type { Post } from "#/utils/data-fetching";
 import { useTranslation } from "react-i18next";
 
@@ -49,8 +50,10 @@ export function AutoScrollCarousel({ posts }: AutoScrollCarouselProps) {
 				</Box>
 
 				{posts.map((post) => (
-					<Box
+					<ChakraLink
 						key={post._id}
+						asChild
+						variant="plain"
 						className="embla__slide"
 						flex="0 0 auto"
 						minW={0}
@@ -59,78 +62,81 @@ export function AutoScrollCarousel({ posts }: AutoScrollCarouselProps) {
 						bg="white"
 						borderRadius="2xl"
 						overflow="hidden"
-						p={4}
 						shadow="sm"
+						_hover={{ transform: "translateY(-4px)", boxShadow: "lg", textDecoration: "none" }}
+						transition="all 0.3s ease"
 					>
-						<Flex gap={3} h="180px" alignItems="stretch">
+						<RouterLink to="/$slug" params={{ slug: post.slug }}>
+							<Flex gap={3} h="180px" alignItems="stretch" p={4}>
 
-							<Box
-								flex="0 0 50%"
-								h="full"
-								borderRadius="xl"
-								overflow="hidden"
-								position="relative"
-							>
-								<Image
-									src={post.coverPhoto?.url}
-									alt={post.title}
-									w="full"
-									h="full"
-								/>
 								<Box
-									position="absolute"
-									bottom={0}
-									left={0}
-									right={0}
-									bg="blackAlpha.700"
-									px={2}
-									py={2}
+									flex="0 0 50%"
+									h="full"
+									borderRadius="xl"
+									overflow="hidden"
+									position="relative"
+								>
+									<Image
+										src={post.coverPhoto?.url}
+										alt={post.title}
+										w="full"
+										h="full"
+										objectFit="cover"
+									/>
+									<Box
+										position="absolute"
+										bottom={0}
+										left={0}
+										right={0}
+										bg="blackAlpha.700"
+										px={2}
+										py={2}
+									>
+										<Text
+											color="white"
+											fontWeight="bold"
+											fontSize="md"
+											lineClamp={1}
+										>
+											{post.title}
+										</Text>
+									</Box>
+								</Box>
+
+								<Flex
+									direction="column"
+									flex="1"
+									h="full"
+									justifyContent="center"
+									bg="red.50"
+									borderRadius="xl"
+									p={4}
 								>
 									<Text
-										color="white"
+										color="red.900"
 										fontWeight="bold"
-										fontSize="md"
-										lineClamp={1}
+										fontSize="lg"
+										textAlign="center"
+										mb={2}
 									>
-										{post.title}
+										{t("app.summarize")}
 									</Text>
-								</Box>
-							</Box>
 
-							<Flex
-								direction="column"
-								flex="1"
-								h="full"
-								justifyContent="center"
-								bg="red.50"
-								borderRadius="xl"
-								p={4}
-							>
-								<Text
-									color="red.900"
-									fontWeight="bold"
-									fontSize="lg"
-									textAlign="center"
-									mb={2}
-								>
-									{t("app.summarize")}
-								</Text>
+									<Text
+										color="gray.700"
+										fontSize="sm"
+										lineHeight="tall"
+										lineClamp={4}
+										textAlign="justify"
+									>
+										{post.excerpt}
+									</Text>
+								</Flex>
 
-								<Text
-									color="gray.700"
-									fontSize="sm"
-									lineHeight="tall"
-									lineClamp={4}
-									textAlign="justify"
-								>
-									{post.excerpt}
-								</Text>
 							</Flex>
-
-						</Flex>
-					</Box>
+						</RouterLink>
+					</ChakraLink>
 				))}
-
 			</Flex>
 		</Box>
 	);
