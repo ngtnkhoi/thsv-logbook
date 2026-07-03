@@ -3,7 +3,7 @@ import { switchLanguage } from "#/utils/switch-language.ts";
 import { Button, chakra } from "@chakra-ui/react";
 import {useRouter} from "@tanstack/react-router";
 
-export function SwitchLanguageButton() {
+export function SwitchLanguageButton({ color } : { color: string }) {
 	const { i18n } = useTranslation();
 	const router = useRouter();
 
@@ -21,11 +21,12 @@ export function SwitchLanguageButton() {
 			variant="ghost"
 			fontFamily="quicksand"
 			fontSize={{ base: "md", md: "xl", lg: "3xl" }}
-			color="white"
+			color={color}
 			aria-label="Toggle language"
 			gap={2}
 			_hover={{ opacity: 0.8 }}
 			p={0}
+			transition="color 0.4s ease"
 		>
 			<chakra.svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +35,7 @@ export function SwitchLanguageButton() {
 			>
 				<g
 					fill="none"
-					stroke="currentColor"
+					stroke={color}
 					strokeWidth="1.5"
 					strokeLinecap="round"
 					strokeLinejoin="round"

@@ -112,8 +112,7 @@ export const postType = defineType({
     defineField({
       name: 'category',
       title: 'Chỉ mục',
-      type: 'array',
-      of: [{type: 'string'}],
+      type: 'string',
       options: {
         list: CATEGORIES.map((cat) => ({
           title: cat.title,

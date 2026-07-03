@@ -22,7 +22,7 @@ export interface Post {
 	_id: string;
 	title: string;
 	slug: string;
-	category: string[];
+	category: string;
 	excerpt: string;
 	coverPhoto?: SanityImage;
 	coverImage?: SanityImage;
@@ -58,7 +58,7 @@ export async function getAllPosts(lang: "vi" | "en" = "vi"): Promise<Post[]> {
 }
 
 export async function getPostsByCategory(categorySlug: string, lang: "vi" | "en" = "vi"): Promise<Post[]> {
-	const query = `*[_type == "post" && defined(slug.current) && $categorySlug in category] | order(publishedAt desc) {
+	const query = `*[_type == "post" && defined(slug.current) && $categorySlug == category] | order(publishedAt desc) {
     ${POST_CORE_FIELDS}
   }`;
 
