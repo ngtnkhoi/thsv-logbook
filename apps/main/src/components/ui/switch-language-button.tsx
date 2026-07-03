@@ -1,15 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { switchLanguage } from "#/utils/switch-language.ts";
 import { Button, chakra } from "@chakra-ui/react";
+import {useRouter} from "@tanstack/react-router";
 
 export function SwitchLanguageButton() {
 	const { i18n } = useTranslation();
+	const router = useRouter();
 
 	const currentLang = i18n.language;
 
 	const handleToggleLanguage = () => {
 		const nextLang = currentLang === "vi" ? "en" : "vi";
 		switchLanguage(i18n, nextLang);
+		void router.invalidate();
 	};
 
 	return (

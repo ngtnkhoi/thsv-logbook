@@ -18,181 +18,181 @@ import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TamGuongRoute = TamGuongRouteImport.update({
-	id: '/tam-guong',
-	path: '/tam-guong',
-	getParentRoute: () => rootRouteImport,
+  id: '/tam-guong',
+  path: '/tam-guong',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const LangNgheRoute = LangNgheRouteImport.update({
-	id: '/lang-nghe',
-	path: '/lang-nghe',
-	getParentRoute: () => rootRouteImport,
+  id: '/lang-nghe',
+  path: '/lang-nghe',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const HoaLuaRoute = HoaLuaRouteImport.update({
-	id: '/hoa-lua',
-	path: '/hoa-lua',
-	getParentRoute: () => rootRouteImport,
+  id: '/hoa-lua',
+  path: '/hoa-lua',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const BaoTangRoute = BaoTangRouteImport.update({
-	id: '/bao-tang',
-	path: '/bao-tang',
-	getParentRoute: () => rootRouteImport,
+  id: '/bao-tang',
+  path: '/bao-tang',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AboutUsRoute = AboutUsRouteImport.update({
-	id: '/about-us',
-	path: '/about-us',
-	getParentRoute: () => rootRouteImport,
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const SlugRoute = SlugRouteImport.update({
-	id: '/$slug',
-	path: '/$slug',
-	getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
-	id: '/',
-	path: '/',
-	getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
-	'/': typeof IndexRoute
-	'/$slug': typeof SlugRoute
-	'/about-us': typeof AboutUsRoute
-	'/bao-tang': typeof BaoTangRoute
-	'/hoa-lua': typeof HoaLuaRoute
-	'/lang-nghe': typeof LangNgheRoute
-	'/tam-guong': typeof TamGuongRoute
+  '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
+  '/about-us': typeof AboutUsRoute
+  '/bao-tang': typeof BaoTangRoute
+  '/hoa-lua': typeof HoaLuaRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/tam-guong': typeof TamGuongRoute
 }
 export interface FileRoutesByTo {
-	'/': typeof IndexRoute
-	'/$slug': typeof SlugRoute
-	'/about-us': typeof AboutUsRoute
-	'/bao-tang': typeof BaoTangRoute
-	'/hoa-lua': typeof HoaLuaRoute
-	'/lang-nghe': typeof LangNgheRoute
-	'/tam-guong': typeof TamGuongRoute
+  '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
+  '/about-us': typeof AboutUsRoute
+  '/bao-tang': typeof BaoTangRoute
+  '/hoa-lua': typeof HoaLuaRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/tam-guong': typeof TamGuongRoute
 }
 export interface FileRoutesById {
-	__root__: typeof rootRouteImport
-	'/': typeof IndexRoute
-	'/$slug': typeof SlugRoute
-	'/about-us': typeof AboutUsRoute
-	'/bao-tang': typeof BaoTangRoute
-	'/hoa-lua': typeof HoaLuaRoute
-	'/lang-nghe': typeof LangNgheRoute
-	'/tam-guong': typeof TamGuongRoute
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
+  '/about-us': typeof AboutUsRoute
+  '/bao-tang': typeof BaoTangRoute
+  '/hoa-lua': typeof HoaLuaRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/tam-guong': typeof TamGuongRoute
 }
 export interface FileRouteTypes {
-	fileRoutesByFullPath: FileRoutesByFullPath
-	fullPaths:
-		| '/'
-		| '/$slug'
-		| '/about-us'
-		| '/bao-tang'
-		| '/hoa-lua'
-		| '/lang-nghe'
-		| '/tam-guong'
-	fileRoutesByTo: FileRoutesByTo
-	to:
-		| '/'
-		| '/$slug'
-		| '/about-us'
-		| '/bao-tang'
-		| '/hoa-lua'
-		| '/lang-nghe'
-		| '/tam-guong'
-	id:
-		| '__root__'
-		| '/'
-		| '/$slug'
-		| '/about-us'
-		| '/bao-tang'
-		| '/hoa-lua'
-		| '/lang-nghe'
-		| '/tam-guong'
-	fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/'
+    | '/$slug'
+    | '/about-us'
+    | '/bao-tang'
+    | '/hoa-lua'
+    | '/lang-nghe'
+    | '/tam-guong'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/$slug'
+    | '/about-us'
+    | '/bao-tang'
+    | '/hoa-lua'
+    | '/lang-nghe'
+    | '/tam-guong'
+  id:
+    | '__root__'
+    | '/'
+    | '/$slug'
+    | '/about-us'
+    | '/bao-tang'
+    | '/hoa-lua'
+    | '/lang-nghe'
+    | '/tam-guong'
+  fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-	IndexRoute: typeof IndexRoute
-	SlugRoute: typeof SlugRoute
-	AboutUsRoute: typeof AboutUsRoute
-	BaoTangRoute: typeof BaoTangRoute
-	HoaLuaRoute: typeof HoaLuaRoute
-	LangNgheRoute: typeof LangNgheRoute
-	TamGuongRoute: typeof TamGuongRoute
+  IndexRoute: typeof IndexRoute
+  SlugRoute: typeof SlugRoute
+  AboutUsRoute: typeof AboutUsRoute
+  BaoTangRoute: typeof BaoTangRoute
+  HoaLuaRoute: typeof HoaLuaRoute
+  LangNgheRoute: typeof LangNgheRoute
+  TamGuongRoute: typeof TamGuongRoute
 }
 
 declare module '@tanstack/react-router' {
-	interface FileRoutesByPath {
-		'/tam-guong': {
-			id: '/tam-guong'
-			path: '/tam-guong'
-			fullPath: '/tam-guong'
-			preLoaderRoute: typeof TamGuongRouteImport
-			parentRoute: typeof rootRouteImport
-		}
-		'/lang-nghe': {
-			id: '/lang-nghe'
-			path: '/lang-nghe'
-			fullPath: '/lang-nghe'
-			preLoaderRoute: typeof LangNgheRouteImport
-			parentRoute: typeof rootRouteImport
-		}
-		'/hoa-lua': {
-			id: '/hoa-lua'
-			path: '/hoa-lua'
-			fullPath: '/hoa-lua'
-			preLoaderRoute: typeof HoaLuaRouteImport
-			parentRoute: typeof rootRouteImport
-		}
-		'/bao-tang': {
-			id: '/bao-tang'
-			path: '/bao-tang'
-			fullPath: '/bao-tang'
-			preLoaderRoute: typeof BaoTangRouteImport
-			parentRoute: typeof rootRouteImport
-		}
-		'/about-us': {
-			id: '/about-us'
-			path: '/about-us'
-			fullPath: '/about-us'
-			preLoaderRoute: typeof AboutUsRouteImport
-			parentRoute: typeof rootRouteImport
-		}
-		'/$slug': {
-			id: '/$slug'
-			path: '/$slug'
-			fullPath: '/$slug'
-			preLoaderRoute: typeof SlugRouteImport
-			parentRoute: typeof rootRouteImport
-		}
-		'/': {
-			id: '/'
-			path: '/'
-			fullPath: '/'
-			preLoaderRoute: typeof IndexRouteImport
-			parentRoute: typeof rootRouteImport
-		}
-	}
+  interface FileRoutesByPath {
+    '/tam-guong': {
+      id: '/tam-guong'
+      path: '/tam-guong'
+      fullPath: '/tam-guong'
+      preLoaderRoute: typeof TamGuongRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lang-nghe': {
+      id: '/lang-nghe'
+      path: '/lang-nghe'
+      fullPath: '/lang-nghe'
+      preLoaderRoute: typeof LangNgheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hoa-lua': {
+      id: '/hoa-lua'
+      path: '/hoa-lua'
+      fullPath: '/hoa-lua'
+      preLoaderRoute: typeof HoaLuaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bao-tang': {
+      id: '/bao-tang'
+      path: '/bao-tang'
+      fullPath: '/bao-tang'
+      preLoaderRoute: typeof BaoTangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$slug': {
+      id: '/$slug'
+      path: '/$slug'
+      fullPath: '/$slug'
+      preLoaderRoute: typeof SlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-	IndexRoute: IndexRoute,
-	SlugRoute: SlugRoute,
-	AboutUsRoute: AboutUsRoute,
-	BaoTangRoute: BaoTangRoute,
-	HoaLuaRoute: HoaLuaRoute,
-	LangNgheRoute: LangNgheRoute,
-	TamGuongRoute: TamGuongRoute,
+  IndexRoute: IndexRoute,
+  SlugRoute: SlugRoute,
+  AboutUsRoute: AboutUsRoute,
+  BaoTangRoute: BaoTangRoute,
+  HoaLuaRoute: HoaLuaRoute,
+  LangNgheRoute: LangNgheRoute,
+  TamGuongRoute: TamGuongRoute,
 }
 export const routeTree = rootRouteImport
-._addFileChildren(rootRouteChildren)
-._addFileTypes<FileRouteTypes>()
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
 import type { createStart } from '@tanstack/react-start'
 declare module '@tanstack/react-start' {
-	interface Register {
-		ssr: true
-		router: Awaited<ReturnType<typeof getRouter>>
-	}
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
 }

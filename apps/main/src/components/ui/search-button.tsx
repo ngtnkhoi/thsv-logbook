@@ -43,7 +43,7 @@ export function SearchButton() {
 			const data = await searchPosts({ keyword, limit: 5 });
 			setResults(data);
 		} catch (error) {
-			console.error("Lỗi khi tìm kiếm:", error);
+			console.error(t("app.searchErr"), error);
 		} finally {
 			setIsLoading(false);
 		}
@@ -74,6 +74,7 @@ export function SearchButton() {
 				open={open}
 				onOpenChange={(e: { open: boolean }) => !e.open && handleClose()}
 				size="xl"
+				preventScroll={false}
 			>
 				<Portal>
 					<DialogBackdrop backdropFilter="blur(4px)" bg="blackAlpha.600" />

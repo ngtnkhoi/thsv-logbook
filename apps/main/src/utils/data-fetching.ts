@@ -24,6 +24,7 @@ export interface Post {
 	slug: string;
 	category: string[];
 	excerpt: string;
+	coverPhoto?: SanityImage;
 	coverImage?: SanityImage;
 	publishedAt: string;
 	contentBlocks?: ContentBlock[];
@@ -35,6 +36,11 @@ const POST_CORE_FIELDS = `
   "slug": slug.current,
   category,
   "excerpt": coalesce(excerpt[$lang], excerpt.vi),
+  "coverPhoto": coverPhoto {
+    ...,
+    "blurDataURL": asset->metadata.lqip,
+    "url": asset->url
+  },
   "coverImage": coverImage {
     ...,
     "blurDataURL": asset->metadata.lqip,
