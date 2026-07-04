@@ -59,7 +59,7 @@ function PostDetailComponent() {
 					px={6}
 					textAlign="center"
 					zIndex={2}
-					pt={{ base: "100px", md: "140px" }}
+					pt="140px"
 					opacity={isScrolledPastHero ? 0 : 1}
 					transform={isScrolledPastHero ? "translateY(-50px)" : "translateY(0)"}
 					transition="all 0.5s ease"

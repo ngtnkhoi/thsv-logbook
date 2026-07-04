@@ -19,6 +19,7 @@
 		"searchErr": "Lỗi khi tìm kiếm"
 	},
 	"about": {
+		"title": "Xin chào",
 		"text": [
 			{
 				"bold": "Dự án Sài Gòn Unfolded",
@@ -30,7 +31,8 @@
 		],
 		"contact": {
 			"bold": "Thông tin liên lạc:",
-			"label": "Fanpage Chiến dịch Hoa Phượng Đỏ trường Phổ thông Năng khiếu, ĐHQG - HCM"
+			"label": "Fanpage Chiến dịch Hoa Phượng Đỏ trường Phổ thông Năng khiếu, ĐHQG - HCM",
+			"href": "https://www.facebook.com/chiendichhoaphuongdoptnk"
 		}
 	}
 }

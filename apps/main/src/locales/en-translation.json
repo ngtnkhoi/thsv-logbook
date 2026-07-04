@@ -5,10 +5,10 @@
 		"switchLanguageButton": "EN",
 		"navigationItems": [
 			"Home",
-			"Bảo tàng",
-			"Làng nghề truyền thống",
-			"Tấm gương trẻ",
-			"Thời hoa lửa"
+			"Museum",
+			"Traditional craft village",
+			"Oustanding youth",
+			"Wartime"
 		],
 		"timKiemBaiViet": "Search articles",
 		"placeHolder": "Type to search",
@@ -19,18 +19,20 @@
 		"searchErr": "Fail to find"
 	},
 	"about": {
+		"title": "Welcome",
 		"text": [
 			{
-				"bold": "Dự án Sài Gòn Unfolded",
-				"content": " được thành lập vào năm 2026 bởi đội hình Tự hào sử Việt thuộc chiến dịch tình nguyện hè Hoa Phượng Đỏ trường Phổ thông Năng khiếu, ĐHQG - HCM."
+				"bold": "The Sài Gòn Unfolded Project",
+				"content": " was established in 2026 by the \"Tự hào sử Việt\" team under The Red Flamboyant Volunteeer Campaign of the High School for the Gifted, VNU-HCM."
 			},
 			{
-				"content": "Với sứ mệnh lan tỏa các giá trị lịch sử và nét đẹp văn hóa, dự án hứa hẹn sẽ mang đến các bạn những thước phim tuyệt vời về một Sài Gòn vừa quen vừa lạ mà chắc chắn bạn sẽ không thể tìm thấy ở bất kỳ nơi nào khác."
+				"content": "With a mission to spread historical values and cultural beauty, the project promises to bring you spectacular footage of a Saigon that is both familiar and uniquely different—something you certainly won't find anywhere else."
 			}
 		],
 		"contact": {
-			"bold": "Thông tin liên lạc:",
-			"label": "Fanpage Chiến dịch Hoa Phượng Đỏ trường Phổ thông Năng khiếu, ĐHQG - HCM"
+			"bold": "Contact information:",
+			"label": "Fanpage Chiến dịch Hoa Phượng Đỏ trường Phổ thông Năng khiếu, ĐHQG - HCM",
+			"href": "https://www.facebook.com/chiendichhoaphuongdoptnk"
 		}
 	}
 }

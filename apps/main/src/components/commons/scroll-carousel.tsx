@@ -1,9 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import { Box, Flex, Text, Image, Link as ChakraLink } from "@chakra-ui/react"; // Đổi tên Link thành ChakraLink
-import { Link as RouterLink } from "@tanstack/react-router"; // Thêm RouterLink của TanStack
+import { Box, Flex, Text, Image, Link as ChakraLink } from "@chakra-ui/react";
+import { Link as RouterLink } from "@tanstack/react-router";
 import type { Post } from "#/utils/data-fetching";
 import { useTranslation } from "react-i18next";
 
@@ -14,16 +15,33 @@ interface AutoScrollCarouselProps {
 export function AutoScrollCarousel({ posts }: AutoScrollCarouselProps) {
 	const { t } = useTranslation();
 
-	const [emblaRef] = useEmblaCarousel(
+	const [emblaRef, emblaApi] = useEmblaCarousel(
 		{ loop: true, dragFree: true },
 		[
 			AutoScroll({
 				speed: 1,
 				stopOnInteraction: false,
-				stopOnMouseEnter: true,
+				stopOnMouseEnter: false,
 			}),
 		]
 	);
+
+	useEffect(() => {
+		if (!emblaApi) return;
+
+		const handlePointerUp = () => {
+			const { autoScroll } = emblaApi.plugins();
+			if (!autoScroll) return;
+
+			autoScroll.play();
+		};
+
+		emblaApi.on("pointerUp", handlePointerUp);
+
+		return () => {
+			emblaApi.off("pointerUp", handlePointerUp);
+		};
+	}, [emblaApi]);
 
 	if (!posts || posts.length === 0) return null;
 

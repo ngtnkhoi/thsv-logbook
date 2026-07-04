@@ -1,8 +1,10 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Image, Link as ChakraLink } from "@chakra-ui/react";
+import { Link as RouterLink } from "@tanstack/react-router";
 
 export function LogoCloud(){
 	return(
-		<Box
+		<ChakraLink
+			asChild
 			w={{ base: "130px", sm: "180px", md: "250px", lg: "300px" }}
 			borderRadius={"17px"}
 			mt={0}
@@ -12,12 +14,14 @@ export function LogoCloud(){
 			justifyContent="center"
 			alignItems="center"
 		>
-			<Image
-				src="/logo.png"
-				alt="Logo Banner"
-				w="90%"
-				h="auto"
-			/>
-		</Box>
+			<RouterLink to="/">
+				<Image
+					src="/logo.png"
+					alt="Logo Banner"
+					w="90%"
+					h="auto"
+				/>
+			</RouterLink>
+		</ChakraLink>
 	);
 }

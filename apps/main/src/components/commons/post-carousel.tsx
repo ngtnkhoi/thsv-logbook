@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { Box, Flex, Text, Button, Link as ChakraLink } from "@chakra-ui/react"; // Đổi tên Link thành ChakraLink
-import { Link as RouterLink } from "@tanstack/react-router"; // Thêm RouterLink của TanStack
+import { Box, Flex, Text, Button, Link as ChakraLink } from "@chakra-ui/react";
+import { Link as RouterLink } from "@tanstack/react-router";
 import { useCarouselButtons } from "#/utils/carousel";
 import type { Post } from "#/utils/data-fetching";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
@@ -22,7 +22,7 @@ export function PostCarousel({ posts }: PostCarouselProps) {
 
 	const [emblaRef, emblaApi] = useEmblaCarousel(
 		{ loop: isCarouselActive, duration: 35, watchDrag: isCarouselActive },
-		isCarouselActive ? [Autoplay({ delay: 10000, stopOnLastSnap: false })] : []
+		isCarouselActive ? [Autoplay({ delay: 5000, stopOnLastSnap: false })] : []
 	);
 
 	const {

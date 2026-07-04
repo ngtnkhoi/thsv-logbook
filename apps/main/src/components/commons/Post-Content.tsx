@@ -8,6 +8,30 @@ interface PostContentBlocksProps {
 	blocks: ContentBlock[];
 }
 
+const extractFirstSentence = (text: string) => {
+	if (!text) return { firstSentence: "", restOfText: "" };
+
+	const match = text.match(/[.!?](\s|$|\n)/);
+
+	if (match && match.index !== undefined) {
+		const splitPoint = match.index + 1;
+		return {
+			firstSentence: text.slice(0, splitPoint).trim(),
+			restOfText: text.slice(splitPoint),
+		};
+	}
+
+	const newlineIndex = text.indexOf("\n");
+	if (newlineIndex !== -1) {
+		return {
+			firstSentence: text.slice(0, newlineIndex).trim(),
+			restOfText: text.slice(newlineIndex),
+		};
+	}
+
+	return { firstSentence: text, restOfText: "" };
+};
+
 export function PostContent({ blocks }: PostContentBlocksProps) {
 	if (!blocks || blocks.length === 0) return null;
 
@@ -62,6 +86,7 @@ export function PostContent({ blocks }: PostContentBlocksProps) {
 					<Flex direction="column" gap={{ base: 8, md: 16 }}>
 						{imageBlocks.map((block, index) => {
 							const isEven = index % 2 === 0;
+							const { firstSentence, restOfText } = extractFirstSentence(block.text || "");
 
 							return (
 								<Flex
@@ -75,12 +100,8 @@ export function PostContent({ blocks }: PostContentBlocksProps) {
 									gap={{ base: 6, md: 12, lg: 20 }}
 									px={{ base: 0, md: 8, xl: 16 }}
 								>
-									<Flex
-										flex={1}
-										align="center"
-										justify="center"
-										p={{ base: 8, md: 4 }}
-									>
+
+									<Flex flex={1} align="center" justify="center" p={{ base: 8, md: 4 }}>
 										<Text
 											color="#ffffff"
 											fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
@@ -89,8 +110,14 @@ export function PostContent({ blocks }: PostContentBlocksProps) {
 											textAlign={{ base: "center", md: isEven ? "right" : "left" }}
 											lineHeight="tall"
 											whiteSpace="pre-wrap"
+											w="full"
 										>
-											{block.text}
+											{firstSentence && (
+												<Box as="span" fontWeight="bold">
+													{firstSentence}
+												</Box>
+											)}
+											{restOfText}
 										</Text>
 									</Flex>
 

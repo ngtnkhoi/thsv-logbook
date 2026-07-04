@@ -123,6 +123,7 @@ export function SlugHeader({ categoryName, postTitle, coverImageUrl, isScrolled 
 					pointerEvents={isScrolled ? "auto" : "none"}
 					transition="all 0.4s ease"
 					mt={2}
+					textTransform="uppercase"
 				>
 					{postTitle}
 				</Text>
