@@ -37,13 +37,18 @@ export const Route = createRootRoute({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "TanStack Start Starter",
+				title: "Sài Gòn UNFOLDED",
 			},
 		],
 		links: [
 			{
 				rel: "stylesheet",
 				href: appCss,
+			},
+			{
+				rel: "icon",
+				href: "/favicon.ico",
+				sizes: "any",
 			},
 		],
 	}),
@@ -60,7 +65,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang={i18n.language} suppressHydrationWarning>
 			<head>
-				<title>Sài Gòn UNFOLDED</title>
 				<HeadContent />
 			</head>
 			<body>
