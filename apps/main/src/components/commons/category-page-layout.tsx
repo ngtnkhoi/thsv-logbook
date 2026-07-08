@@ -2,7 +2,7 @@
 
 import { Box, VStack } from "@chakra-ui/react";
 import { useEffect, useState, useRef } from "react";
-import { Header } from "#/components/commons/header";
+import { Header } from "#/components/commons/header/header.tsx";
 import { PostCarousel } from "#/components/commons/post-carousel";
 import { AutoScrollCarousel } from "#/components/commons/scroll-carousel.tsx";
 import type { Post } from "#/utils/data-fetching";

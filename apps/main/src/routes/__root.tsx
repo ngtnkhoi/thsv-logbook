@@ -85,6 +85,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 						},
 					]}
 				/>
+				{import.meta.env.DEV && (
+					<script crossOrigin="anonymous" src="https://unpkg.com/react-scan/dist/auto.global" />
+				)}
 				<Scripts />
 			</body>
 		</html>

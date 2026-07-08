@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header } from "#/components/commons/header";
+import { Header } from "#/components/commons/header/header.tsx";
 import { Box, VStack } from "@chakra-ui/react";
-import { useEffect, useState, useRef } from "react"; // Thêm useRef
 import { getAllPosts } from "#/utils/data-fetching";
 import { PostCarousel } from "#/components/commons/post-carousel";
 import { AutoScrollCarousel } from "#/components/commons/scroll-carousel.tsx";
@@ -23,47 +22,9 @@ function TrangChu() {
 	const tamGuongPosts = allPosts.filter((post) => post.category?.includes("tam-guong-tre"));
 	const thoiHoaLuaPosts = allPosts.filter((post) => post.category?.includes("thoi-hoa-lua"));
 
-	const [isRolling, setIsRolling] = useState(false);
-
-	const sentinelRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const sentinel = sentinelRef.current;
-		if (!sentinel) return;
-
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				setIsRolling(!entry.isIntersecting);
-			},
-			{
-				root: null,
-				threshold: 0,
-			}
-		);
-
-		observer.observe(sentinel);
-
-		return () => {
-			observer.unobserve(sentinel);
-		};
-	}, []);
-
 	return (
 		<Box h="1000px" position="relative">
-			<div
-				ref={sentinelRef}
-				style={{
-					position: "absolute",
-					top: "0px",
-					left: "0px",
-					width: "100%",
-					height: "10px",
-					pointerEvents: "none",
-					zIndex: 9999
-				}}
-			/>
-
-			<Header isRolling={isRolling} />
+			<Header />
 
 			<Box w="full">
 				<Box mb={12}>

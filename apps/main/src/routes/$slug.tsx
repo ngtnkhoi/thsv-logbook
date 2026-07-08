@@ -1,9 +1,8 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { getPostBySlug } from '@/utils/data-fetching'
 import { Box, Flex } from "@chakra-ui/react"
-import { SlugHeader } from "#/components/commons/slug-header"
+import { SlugHeader } from "#/components/commons/slug-header/slug-header"
 import { PostTitle } from "#/components/ui/post-title"
-import { useHeroScroll } from "#/utils/use-post-scroll"
 import { getLangFromCookie } from "#/utils/get-lang-from-cookie.ts";
 import { PostContent } from "#/components/commons/Post-Content"
 
@@ -20,16 +19,13 @@ export const Route = createFileRoute('/$slug')({
 
 function PostDetailComponent() {
 	const post = Route.useLoaderData();
-	const isScrolledPastHero = useHeroScroll();
 
 	return (
 		<Box position="relative" w="full">
-
 			<SlugHeader
 				categoryName={post.category}
 				postTitle={post.title}
 				coverImageUrl={post.coverImage?.url}
-				isScrolled={isScrolledPastHero}
 			/>
 
 			<Flex
@@ -50,7 +46,7 @@ function PostDetailComponent() {
 					backgroundPosition="center"
 					backgroundRepeat="no-repeat"
 					zIndex={1}
-					opacity={isScrolledPastHero ? 0.3 : 1}
+					opacity={1}
 					transition="opacity 0.6s ease"
 				/>
 
@@ -60,19 +56,17 @@ function PostDetailComponent() {
 					textAlign="center"
 					zIndex={2}
 					pt="140px"
-					opacity={isScrolledPastHero ? 0 : 1}
-					transform={isScrolledPastHero ? "translateY(-50px)" : "translateY(0)"}
 					transition="all 0.5s ease"
 				>
 					<PostTitle title={post.title} />
 				</Box>
 			</Flex>
+
 			<Box position="relative" zIndex={3} minH="100vh" w="full">
 				<Box>
 					<PostContent blocks={post.contentBlocks || []} />
 				</Box>
 			</Box>
-
 		</Box>
 	);
 }
