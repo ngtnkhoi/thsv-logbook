@@ -3,8 +3,8 @@ import { getPostBySlug } from '@/utils/data-fetching'
 import { Box, Flex } from "@chakra-ui/react"
 import { SlugHeader } from "#/components/commons/slug-header/slug-header"
 import { PostTitle } from "#/components/ui/post-title"
-import { getLangFromCookie } from "#/utils/get-lang-from-cookie.ts";
-import { PostContent } from "#/components/commons/Post-Content"
+import { getLangFromCookie } from "#/utils/get-lang-from-cookie";
+import { PostContent } from "#/components/commons/post-content"
 
 export const Route = createFileRoute('/$slug')({
 	loader: async ({ params }) => {
@@ -62,11 +62,7 @@ function PostDetailComponent() {
 				</Box>
 			</Flex>
 
-			<Box position="relative" zIndex={3} minH="100vh" w="full">
-				<Box>
-					<PostContent blocks={post.contentBlocks || []} />
-				</Box>
-			</Box>
+			<PostContent blocks={post.contentBlocks || []} />
 		</Box>
 	);
 }
