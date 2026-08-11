@@ -152,4 +152,9 @@ export const postType = defineType({
       of: [{type: 'contentBlock'}],
     }),
   ],
+  preview: {
+    select: {
+      title: 'title.vi',
+    },
+  },
 })
