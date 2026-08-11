@@ -154,7 +154,13 @@ export const postType = defineType({
   ],
   preview: {
     select: {
-      title: 'title.vi',
+      titleVi: 'title.vi',
+      titleEn: 'title.en',
+    },
+    prepare({ titleVi, titleEn }) {
+      return {
+        title: titleVi || titleEn || 'Chưa nhập tiêu đề',
+      }
     },
   },
 })
